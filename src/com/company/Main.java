@@ -16,6 +16,10 @@ public class Main {
         char letter = numberToLetter(number);
         System.out.printf("Tallet %d bliver til bogstavet %c\n", number, letter);
 
+        int[] cipher = {1, 2, 3, 4, 5, 6,};
+        String plaintext = listOfNumbersToText(cipher);
+        System.out.println("Den virker: ");
+        System.out.println(plaintext);
     }
 
     public static int[] textToListOfNumbers(String text){
@@ -24,10 +28,23 @@ public class Main {
 
         for(int i=0; i < letters.length; i++){
             numbers[i] = letterToNumber(letters[i] );
-           
+
         }
 
         return numbers;
+    }
+
+    public static String listOfNumbersToText(int[] numbers){
+        String text = "";
+        for (int i=0; i < numbers.length; i++){
+            int number = numbers[i];
+
+            char letter = numberToLetter(number);
+
+            text = text + letter;
+        }
+        return text;
+
     }
 
     public static int letterToNumber(char letter) {
